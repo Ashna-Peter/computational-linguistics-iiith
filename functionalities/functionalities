@@ -1,0 +1,12 @@
+Functionalities required to complete the task
+header iiit-h image -right ,virtual lab log
+at all pages navbar should appear where the active page should be
+highlighted with a blue color and while hover over the bar  same color appear
+ while navigate to experiment page the page should appear with a drop downbox
+ which gave option to select language(english,hindi).
+ select the language hidden objectives should appear(h1,button)
+ while click on the button (hidden, appear the word  in next para, visible the button(Re-form the sentence))
+ if the all button disappear the hidden button(check the correctness )appear
+ if the sentence true print write ans
+ else print wrong ans
+enable, disable buttons
