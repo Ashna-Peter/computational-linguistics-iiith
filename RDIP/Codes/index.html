@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-s" />
+    <title>Virtual Labs</title>
+    <link rel="stylesheet" href="css/experiment.css" />
+    <script src="js/experiment.js"></script>
+  </head>
+  <body>
+    <p id="array"></p>
+    <p style="font-size: 40px;">Experiment</p3>
+    <div class="lang selection" id="lang" style="text-align: center;">
+      <select id="selection" onchange="sentence()">
+        <option value="null">---Select Language---</option>
+        <option value="English" onclick="sentence()">English</option>
+        <option value="Hindi">Hindi</option>
+      </select>
+    </div>
+    <br /><br />
+    <div>
+      <p
+        id="bold"
+        style="
+          color: #0505c7;
+          font-size: 35px;
+          text-align: center;
+          font-style: normal;
+        "
+      ></p>
+      <p
+        id="italic"
+        style="
+          color: #0505c7;
+          font-size: 20px;
+          text-align: center;
+          font-style: italic;
+        "
+      ></p>
+    </div>
+  </body>
+</html>
