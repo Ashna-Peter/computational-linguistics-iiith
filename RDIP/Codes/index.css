@@ -5,7 +5,5 @@ button{
   padding: 10px;
   margin: 10px
   display: inline-block;
-}
-.random{
-  display: inline-block;
+  text-align: center;
 }
