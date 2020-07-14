@@ -1,36 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Virtual Labs</title>
-    <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8" />
+    <title>Virtual</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
-  <body>
 
+  <body>
     <p style="font-size: 40px;">Experiment</p3>
     <div  id="lang" style="text-align: center;">
-      <select id="Selectlang" onchange="sentence()" onclick="fun()">
-        <option value="none">---Select Language---</option>
-        <option value="English">English</option>
-        <option value="Hindi">Hindi</option>
-      </select>
+    <select id="selectlang" onchange="fun();">
+      <option value="none">---Select Language---</option>
+      <option value="English">English</option>
+      <option value="Hindi">Hindi</option>
     </div>
-    <br /><br />
-    <div>
-      <p id="form_sentence"
-        style="color: #0505c7;font-size: 20px;text-align: center;"  ></p>
-      <p id="italic"
-        style="color: #0505c7;font-size: 20px;text-align: center;font-style: italic;"></p>
-    </div>
-    <div class="random">
-      <p id="engbtn"style="text-align:center;padding:5px;margin:5px;"></p>
-      <p id="hndbtn" style="text-align:center;padding:5px;margin:5px"></p>
-    </div>
-    <div class="sentence">
-     <p id="formed_sentence"style="color:#0505c7;text-align:center;font-size:20px;">
-    </div>
-    <div class="print" style="text-align:center;font-size:30px;font-style:bold;opacity:.8"><p id="print"></p></div>
-    <div class="reform"><p id="reform" style="text-align:center ;"></p></div>
-    <script src="index.js" charset="utf-8"></script>
+    </select>
+    <div ><p style="color: #0505c7;font-size: 20px;text-align: center;"
+      id="form_sentence"></p></div>
+    <p id="val"></p>
+    <div><p id="formed_sentence"style="color:#0505c7;text-align:center;font-size:20px;"></p></div>
+    <div><p id="print" style="text-align:center;font-size:30px;font-style:bold;opacity:.8"></p></div>
+    <div><p id="reform"></p></div>
+    <div><button id="hide" onclick="reform();">Re-form the sentence</button></div>
+    <script src="index.js"></script>
   </body>
 </html>
