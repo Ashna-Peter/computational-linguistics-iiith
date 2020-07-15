@@ -1,5 +1,6 @@
-let startingVal, updatedVal, k;
-$("#hide").hide();
+let startingvalue, updatedvalue, word;
+$("#reset").hide();
+$("#correct").hide();
 let eone = [
   "John ate an apple before afternoon",
   "before afternoon John ate an apple",
@@ -118,77 +119,74 @@ let hseven = [
   "है वहाँ बड़ी सी एक किताब",
 ];
 let Hindi = [hone, htwo, hthree, hfour, hfive, hsix, hseven];
-let changeWords;
+let random;
 function fun() {
  selection = document.getElementById("selectlang");
+ let store = "";
   if (selection.value === "English") {
     document.getElementById("form_sentence").innerHTML =
       "<b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b>" +
       "</br>" +
       "<i>(select the buttons in proper order)</i>";
-    changeWords = Math.floor(Math.random() * English.length);
+    random = Math.floor(Math.random() * English.length);
     document.getElementById("formed_sentence").innerHTML = " ";
     document.getElementById("print").innerHTML = " ";
     document.getElementById("reform").innerHTML = " ";
-    valueDisplay = "";
-    $("#hide").hide();
-    let gettingValue = English[changeWords][0];
-    k = shuffle(gettingValue);
-    startingVal = 0;
-    updatedVal = 0;
-    let n = "";
-    for (i = 0; i <= k.length - 1; i++) {
-      val = k[i];
-      let m =
-        "<button style= 'font-size:15px ; padding:5px ; margin-right:5px ' id='btn1" +
+    $("#reset").hide();
+    $("#correct").hide();
+    let gettingValue = English[random][0];
+    word = shuffle(gettingValue);
+    startingvalue = 0;
+    updatedvalue = 0;
+    for (i = 0; i <= word.length - 1; i++) {
+       temp =
+        "<button  id='btn" +
         i +
         "' onclick='reply_click(this.id,this.value)' value='" +
-        val +
+        word[i] +
         "'>" +
-        val +
+        word[i] +
         "</button>  ";
-      n += m;
-      updatedVal++;
+      store += temp;
+      updatedvalue++;
     }
-    document.getElementById("val").innerHTML = n;
+    document.getElementById("btnval").innerHTML = store;
   }
   else if (selection.value === "Hindi") {
     document.getElementById("form_sentence").innerHTML =
       "<b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b>" +
       "</br>" +
       "<i>(select the buttons in proper order)</i>";
-    changeWords = Math.floor(Math.random() * Hindi.length);
+    random = Math.floor(Math.random() * Hindi.length);
     document.getElementById("formed_sentence").innerHTML = " ";
     document.getElementById("print").innerHTML = " ";
     document.getElementById("reform").innerHTML = " ";
-    valueDisplay = "";
-    $("#hide").hide();
-    let gettingValue = Hindi[changeWords][0];
-    k = shuffle(gettingValue);
+    $("#reset").hide();
+    $("#correct").hide();
+    let gettingValue = Hindi[random][0];
+    word = shuffle(gettingValue);
     startingVal = 0;
     updatedVal = 0;
-    let n = "";
-    for (i = 0; i <= k.length - 1; i++) {
-      val = k[i];
-      let m =
-        "  <button style= 'font-size:15px ; padding:5px ; margin-right:5px ' id='btn1" +
+    for (i = 0; i <= word.length - 1; i++) {
+       temp =
+        "  <button  id='btn" +
         i +
         "' onclick='reply_click(this.id,this.value)' value='" +
-        val +
+        word[i] +
         "'>" +
-        val +
+        word[i] +
         "</button>  ";
-      n += m;
-      updatedVal++;
+      store += temp;
+      updatedvalue++;
     }
-    document.getElementById("val").innerHTML = n;
+    document.getElementById("btnval").innerHTML = store;
   } else {
     document.getElementById("form_sentence").innerHTML = "";
     document.getElementById("val").innerHTML = "";
     document.getElementById("formed_sentence").innerHTML = "";
     document.getElementById("print").innerHTML = "";
     document.getElementById("reform").innerHTML = "";
-    $("#hide").hide();
+    $("#reset").hide();
   }
 }
 function shuffle(sentence) {
@@ -202,24 +200,25 @@ function shuffle(sentence) {
   }
   return words;
 }
-let valueDisplay = "";
-function reply_click(id, value) {
+function reply_click(clicked_id, value) {
   document.getElementById("formed_sentence").innerHTML =
     "<b>Formed Sentence</b>"+" <i>(after selecting words)</i>";
-  valueDisplay += val + " ";
-  document.getElementById("print").innerHTML = valueDisplay;
-  $("#hide").show();
-  document.getElementById(id).style.display = "none";
-  startingVal++;
+  document.getElementById("print").innerHTML += value + " ";
+  $("#reset").show();
+  document.getElementById(clicked_id).style.display = "none";
+  startingvalue++;
+  if(updatedvalue == startingvalue){
+    $("#correct").show()
+  }
 }
 function reform() {
-  for (i = 0; i <= k.length - 1; i++) {
-    document.getElementById("btn1" + i).style.display = "";
+  for (i = 0; i <= word.length - 1; i++) {
+    document.getElementById("btn" + i).style.display = "";
   }
   document.getElementById("formed_sentence").innerHTML = "";
-  document.getElementById("print").innerHTML = "";
+  document.getElementById("print").innerHTML = "  ";
   document.getElementById("reform").innerHTML = "";
-  startingVal = 0;
-  valueDisplay = "";
-  $("#hide").hide();
+  startingvalue = 0;
+  $("#reset").hide();
+  $("#correct").hide()
 }
