@@ -1,76 +1,67 @@
-let startingvalue, updatedvalue, word;
+var startingvalue, updatedvalue, word;
 $("#reset").hide();
 $("#correct").hide();
-let eone = [
-  "John ate an apple before afternoon",
-  "before afternoon John ate an apple",
-  "John before afternoon ate an apple",
+
+const English = [
+  [
+    "John ate an apple before afternoon",
+    "before afternoon John ate an apple",
+    "John before afternoon ate an apple",
+  ],
+  [
+    "some students like to study in the night",
+    "at night some students like to study",
+  ],
+  ["John and Mary went to church", "Mary and John went to church"],
+  [
+    "John went to church after eating",
+    "after eating John went to church",
+    "John after eating went to church",
+  ],
+   ["did he go to market", "he did go to market"],
+  [
+    "the woman who called my sister sells cosmetics",
+    "the woman who sells cosmetics called my sister",
+    "my sister who sells cosmetics called the woman",
+    "my sister who called the woman sells cosmetics",
+  ],
+  [
+    "John goes to the library and studies",
+    "John studies and goes to the library",
+  ],
+   ["John ate an apple so did she", "she ate an apple so did John"],
+   [
+    "the teacher returned the book after she noticed the error",
+    "the teacher noticed the error after she returned the book",
+    "after the teacher returned the book she noticed the error",
+    "after the teacher noticed the error she returned the book",
+    "she returned the book after the teacher noticed the error",
+    "she noticed the error after the teacher returned the book",
+    "after she returned the book the teacher noticed the error",
+    "after she noticed the error the teacher returned the book",
+  ],
+ [
+    "I told her that I bought a book yesterday",
+    "I told her yesterday that I bought a book",
+    "yesterday I told her that I bought a book",
+    "I bought a book that I told her yesterday",
+    "I bought a book yesterday that I told her",
+    "yesterday I bought a book that I told her",
+  ],
 ];
-let etwo = [
-  "some students like to study in the night",
-  "at night some students like to study",
-];
-let ethree = ["John and Mary went to church", "Mary and John went to church"];
-let efour = [
-  "John went to church after eating",
-  "after eating John went to church",
-  "John after eating went to church",
-];
-let efive = ["did he go to market", "he did go to market"];
-let esix = [
-  "the woman who called my sister sells cosmetics",
-  "the woman who sells cosmetics called my sister",
-  "my sister who sells cosmetics called the woman",
-  "my sister who called the woman sells cosmetics",
-];
-let eseven = [
-  "John goes to the library and studies",
-  "John studies and goes to the library",
-];
-let eeight = ["John ate an apple so did she", "she ate an apple so did John"];
-let enine = [
-  "the teacher returned the book after she noticed the error",
-  "the teacher noticed the error after she returned the book",
-  "after the teacher returned the book she noticed the error",
-  "after the teacher noticed the error she returned the book",
-  "she returned the book after the teacher noticed the error",
-  "she noticed the error after the teacher returned the book",
-  "after she returned the book the teacher noticed the error",
-  "after she noticed the error the teacher returned the book",
-];
-let eten = [
-  "I told her that I bought a book yesterday",
-  "I told her yesterday that I bought a book",
-  "yesterday I told her that I bought a book",
-  "I bought a book that I told her yesterday",
-  "I bought a book yesterday that I told her",
-  "yesterday I bought a book that I told her",
-];
-let English = [
-  eone,
-  etwo,
-  ethree,
-  efour,
-  efive,
-  esix,
-  eseven,
-  eeight,
-  enine,
-  eten,
-];
-let hone = [
+const Hindi = [[
   "राम और श्याम बाजार गयें",
   "राम और श्याम गयें बाजार",
   "बाजार गयें राम और श्याम",
   "गयें बाजार राम और श्याम",
-];
-let htwo = [
+],
+[
   "राम सोया और श्याम भी",
   "श्याम सोया और राम भी",
   "सोया श्याम और राम भी",
   "सोया राम और श्याम भी",
-];
-let hthree = [
+],
+[
   "मैंने उसे बताया कि राम सो रहा है",
   "मैंने उसे बताया कि सो रहा है राम",
   "उसे मैंने बताया कि राम सो रहा है",
@@ -83,16 +74,16 @@ let hthree = [
   "बताया मैंने उसे कि सो रहा है राम",
   "बताया उसे मैंने कि राम सो रहा है",
   "बताया उसे मैंने कि सो रहा है राम",
-];
-let hfour = [
+],
+[
   "राम खाकर सोया",
   "खाकर राम सोया",
   "राम सोया खाकर",
   "खाकर सोया राम",
   "सोया राम खाकर",
   "सोया खाकर राम",
-];
-let hfive = [
+],
+[
   "बिल्लियों को मारकर कुत्ता सो गया",
   "मारकर बिल्लियों को कुत्ता सो गया",
   "बिल्लियों को मारकर सो गया कुत्ता",
@@ -101,14 +92,14 @@ let hfive = [
   "कुत्ता सो गया मारकर बिल्लियों को",
   "सो गया कुत्ता बिल्लियों को मारकर",
   "सो गया कुत्ता मारकर बिल्लियों को",
-];
-let hsix = [
+],
+[
   "एक लाल किताब वहाँ है",
   "एक लाल किताब है वहाँ",
   "वहाँ है एक लाल किताब",
   "है वहाँ एक लाल किताब",
-];
-let hseven = [
+],
+[
   "एक बड़ी सी किताब वहाँ है",
   "एक बड़ी सी किताब है वहाँ",
   "बड़ी सी एक किताब वहाँ है",
@@ -117,9 +108,8 @@ let hseven = [
   "वहाँ है बड़ी सी एक किताब",
   "है वहाँ एक बड़ी सी किताब",
   "है वहाँ बड़ी सी एक किताब",
-];
-let Hindi = [hone, htwo, hthree, hfour, hfive, hsix, hseven];
-let random;
+] ];
+let Erandom,Hrandom;
 function fun() {
  selection = document.getElementById("selectlang");
  let store = "";
@@ -128,14 +118,15 @@ function fun() {
       "<b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b>" +
       "</br>" +
       "<i>(select the buttons in proper order)</i>";
-    random = Math.floor(Math.random() * English.length);
+    Erandom = Math.floor(Math.random() * English.length);
     document.getElementById("formed_sentence").innerHTML = " ";
     document.getElementById("print").innerHTML = " ";
     document.getElementById("reform").innerHTML = " ";
+    document.getElementById("check").innerHTML = "";
     $("#reset").hide();
     $("#correct").hide();
-    let gettingValue = English[random][0];
-    word = shuffle(gettingValue);
+    let Value = English[Erandom][0];
+    word = shuffle(Value);
     startingvalue = 0;
     updatedvalue = 0;
     for (i = 0; i <= word.length - 1; i++) {
@@ -157,19 +148,20 @@ function fun() {
       "<b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b>" +
       "</br>" +
       "<i>(select the buttons in proper order)</i>";
-    random = Math.floor(Math.random() * Hindi.length);
+    Hrandom = Math.floor(Math.random() * English.length);
     document.getElementById("formed_sentence").innerHTML = " ";
     document.getElementById("print").innerHTML = " ";
     document.getElementById("reform").innerHTML = " ";
+    document.getElementById("check").innerHTML = "";
     $("#reset").hide();
     $("#correct").hide();
-    let gettingValue = Hindi[random][0];
-    word = shuffle(gettingValue);
-    startingVal = 0;
-    updatedVal = 0;
+    let Value = Hindi[Hrandom][0];
+    word = shuffle(Value);
+    startingvalue = 0;
+    updatedvalue = 0;
     for (i = 0; i <= word.length - 1; i++) {
        temp =
-        "  <button  id='btn" +
+        "<button  id='btn" +
         i +
         "' onclick='reply_click(this.id,this.value)' value='" +
         word[i] +
@@ -180,12 +172,14 @@ function fun() {
       updatedvalue++;
     }
     document.getElementById("btnval").innerHTML = store;
-  } else {
+  }
+  else {
     document.getElementById("form_sentence").innerHTML = "";
     document.getElementById("val").innerHTML = "";
     document.getElementById("formed_sentence").innerHTML = "";
     document.getElementById("print").innerHTML = "";
     document.getElementById("reform").innerHTML = "";
+    document.getElementById("check").innerHTML=""
     $("#reset").hide();
   }
 }
@@ -200,15 +194,17 @@ function shuffle(sentence) {
   }
   return words;
 }
-function reply_click(clicked_id, value) {
+function reply_click(clicked_id,clicked_value) {
   document.getElementById("formed_sentence").innerHTML =
     "<b>Formed Sentence</b>"+" <i>(after selecting words)</i>";
-  document.getElementById("print").innerHTML += value + " ";
+  document.getElementById("print").innerHTML += clicked_value + " ";
   $("#reset").show();
   document.getElementById(clicked_id).style.display = "none";
   startingvalue++;
   if(updatedvalue == startingvalue){
     $("#correct").show()
+  //sentence=document.getElementById("print").innerHTML;
+  //alert(sentence);
   }
 }
 function reform() {
@@ -218,7 +214,63 @@ function reform() {
   document.getElementById("formed_sentence").innerHTML = "";
   document.getElementById("print").innerHTML = "  ";
   document.getElementById("reform").innerHTML = "";
+  document.getElementById("check").innerHTML = ""
   startingvalue = 0;
   $("#reset").hide();
   $("#correct").hide()
+}
+function correctness() {
+  let check_sentence=document.getElementById("print").innerHTML
+//  console.log(check_sentence);
+  str_sentence=check_sentence.toString();
+  //alert(sentence);
+  console.log(str_sentence);
+ //var flag=false;
+   if (selection.value=="English") {
+    // console.log(lang);
+     for(value in English[Erandom]){
+      value=English[Erandom]
+              //console.log(value);
+    //  console.log(value);
+      var count=value.length;
+      console.log(count);
+      for(var i=0;i<count;i++){
+        let  temp=value[i]
+        console.log(temp);
+        if(temp==str_sentence){
+          //flag = true;
+          document.getElementById("check").innerHTML="correct sentence";
+          break;
+      //console.log("correct");
+        }
+        else {
+          document.getElementById("check").innerHTML="Wrong";
+      //console.log("rng");
+  }
+}
+}}
+else if (selection.value=="Hindi") {
+ // console.log(lang);
+  for(value in Hindi[Hrandom]){
+   value=Hindi[Hrandom]
+           //console.log(value);
+           console.log(value);
+   var count=value.length;
+   console.log(count);
+   for(var i=0;i<count;i++){
+     temp=count[i]
+         //console.log(value[i]);
+     if(temp==check_sentence){
+       //flag = true;
+      consile.log(temp);
+       document.getElementById("check").innerHTML="correct sentence";
+       break;
+   //console.log("correct");
+     }
+     else {
+       document.getElementById("check").innerHTML="Wrong";
+   //console.log("rng");
+}
+}
+}}
 }
