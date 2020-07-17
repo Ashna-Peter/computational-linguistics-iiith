@@ -239,12 +239,12 @@ function correctness() {
         console.log(temp);
         if(temp==str_sentence){
           //flag = true;
-          document.getElementById("check").innerHTML="correct sentence";
+          document.getElementById("check").innerHTML="Right answer!!!";
           break;
       //console.log("correct");
         }
         else {
-          document.getElementById("check").innerHTML="Wrong";
+          document.getElementById("check").innerHTML="Wrong answer!!!";
       //console.log("rng");
   }
 }
