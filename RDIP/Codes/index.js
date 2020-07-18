@@ -1,7 +1,7 @@
 var startingvalue, updatedvalue, word;
 $("#reset").hide();
 $("#correct").hide();
-
+$("#get_ans").hide();
 const English = [
   [
     "John ate an apple before afternoon",
@@ -127,6 +127,7 @@ function fun() {
     document.getElementById("check").innerHTML = "";
     $("#reset").hide();
     $("#correct").hide();
+    $("#get_ans").hide();
     let Value = English[Erandom][0];
     word = shuffle(Value);
     startingvalue = 0;
@@ -156,6 +157,7 @@ function fun() {
     document.getElementById("check").innerHTML = "";
     $("#reset").hide();
     $("#correct").hide();
+    $("#get_ans").hide();
     let Value = Hindi[Hrandom][0];
     word = shuffle(Value);
     startingvalue = 0;
@@ -181,6 +183,8 @@ function fun() {
     document.getElementById("reform").innerHTML = "";
     document.getElementById("check").innerHTML = "";
     $("#reset").hide();
+    $("#correct").hide();
+    $("#get_ans").hide();
   }
 }
 function shuffle(sentence) {
@@ -218,6 +222,7 @@ function reform() {
   startingvalue = 0;
   $("#reset").hide();
   $("#correct").hide();
+  $("#get_ans").hide();
 }
 function correctness() {
   let check_sentence = document.getElementById("print").innerHTML;
@@ -250,6 +255,7 @@ function correctness() {
       {
         document.getElementById("check").innerHTML = "Wrong answer!!!";
         document.getElementById("check").style.color = "red";
+        $("#get_ans").show();
         //console.log("rng");
       }
     }
@@ -277,6 +283,7 @@ function correctness() {
       {
         document.getElementById("check").innerHTML = "Wrong answer!!!";
         document.getElementById("check").style.color = "red";
+        $("#get_ans").show();
         //console.log("rng");
       }
     }
