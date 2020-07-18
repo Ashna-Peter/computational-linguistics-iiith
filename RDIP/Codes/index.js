@@ -125,6 +125,7 @@ function fun() {
     document.getElementById("print").innerHTML = " ";
     document.getElementById("reform").innerHTML = " ";
     document.getElementById("check").innerHTML = "";
+    document.getElementById("print_ans").innerHTML=""
     $("#reset").hide();
     $("#correct").hide();
     $("#get_ans").hide();
@@ -155,6 +156,7 @@ function fun() {
     document.getElementById("print").innerHTML = " ";
     document.getElementById("reform").innerHTML = " ";
     document.getElementById("check").innerHTML = "";
+        document.getElementById("print_ans").innerHTML=""
     $("#reset").hide();
     $("#correct").hide();
     $("#get_ans").hide();
@@ -182,6 +184,7 @@ function fun() {
     document.getElementById("print").innerHTML = "";
     document.getElementById("reform").innerHTML = "";
     document.getElementById("check").innerHTML = "";
+    document.getElementById("print_ans").innerHTML=""
     $("#reset").hide();
     $("#correct").hide();
     $("#get_ans").hide();
@@ -219,6 +222,7 @@ function reform() {
   document.getElementById("print").innerHTML = "  ";
   document.getElementById("reform").innerHTML = "";
   document.getElementById("check").innerHTML = "";
+  document.getElementById("print_ans").innerHTML=""
   startingvalue = 0;
   $("#reset").hide();
   $("#correct").hide();
@@ -288,4 +292,20 @@ function correctness() {
       }
     }
   }
+}
+function get_answer() {
+  let getval=""
+  if (selection.value == "English") {
+    value = English[Erandom];
+    console.log(value);
+  }
+  else if (selection.value == "Hindi") {
+    value = Hindi[Hrandom];
+    console.log(value);
+  }
+  //get=value.split(",")
+  for(i=0;i<value.length;i++){
+  getval += value[i]+"<br/>"
+  document.getElementById("print_ans").innerHTML=getval;
+}
 }
