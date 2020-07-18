@@ -2,6 +2,7 @@ var startingvalue, updatedvalue, word;
 $("#reset").hide();
 $("#correct").hide();
 $("#get_ans").hide();
+$("#hide_ans").hide();
 const English = [
   [
     "John ate an apple before afternoon",
@@ -129,6 +130,7 @@ function fun() {
     $("#reset").hide();
     $("#correct").hide();
     $("#get_ans").hide();
+    $("#hide_ans").hide();
     let Value = English[Erandom][0];
     word = shuffle(Value);
     startingvalue = 0;
@@ -151,15 +153,16 @@ function fun() {
       "<b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b>" +
       "</br>" +
       "<i>(select the buttons in proper order)</i>";
-    Hrandom = Math.floor(Math.random() * English.length);
+    Hrandom = Math.floor(Math.random() * Hindi.length);
     document.getElementById("formed_sentence").innerHTML = " ";
     document.getElementById("print").innerHTML = " ";
     document.getElementById("reform").innerHTML = " ";
     document.getElementById("check").innerHTML = "";
-        document.getElementById("print_ans").innerHTML=""
+    document.getElementById("print_ans").innerHTML=""
     $("#reset").hide();
     $("#correct").hide();
     $("#get_ans").hide();
+    $("#hide_ans").hide();
     let Value = Hindi[Hrandom][0];
     word = shuffle(Value);
     startingvalue = 0;
@@ -188,6 +191,7 @@ function fun() {
     $("#reset").hide();
     $("#correct").hide();
     $("#get_ans").hide();
+    $("hide_ans").hide();
   }
 }
 function shuffle(sentence) {
@@ -227,6 +231,7 @@ function reform() {
   $("#reset").hide();
   $("#correct").hide();
   $("#get_ans").hide();
+  $("#hide_ans").hide();
 }
 function correctness() {
   let check_sentence = document.getElementById("print").innerHTML;
@@ -259,7 +264,8 @@ function correctness() {
       {
         document.getElementById("check").innerHTML = "Wrong answer!!!";
         document.getElementById("check").style.color = "red";
-        $("#get_ans").show();
+        $("#get_ans").show()
+        $("#hide_ans").hide()
         //console.log("rng");
       }
     }
@@ -288,6 +294,7 @@ function correctness() {
         document.getElementById("check").innerHTML = "Wrong answer!!!";
         document.getElementById("check").style.color = "red";
         $("#get_ans").show();
+        $("#hide_ans").hide();
         //console.log("rng");
       }
     }
@@ -307,5 +314,13 @@ function get_answer() {
   for(i=0;i<value.length;i++){
   getval += value[i]+"<br/>"
   document.getElementById("print_ans").innerHTML=getval;
+  $("#hide_ans").show();
+  $("#get_ans").hide()
 }
+}
+function hide_answer() {
+  document.getElementById("print_ans").innerHTML=""
+  $("#hide_ans").hide();
+  $("#get_ans").show();
+
 }
